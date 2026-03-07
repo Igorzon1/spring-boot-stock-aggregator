@@ -4,7 +4,11 @@ import com.seuportfolio.financial_aggregator.model.StockQuote;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface StockQuoteRepository extends JpaRepository<StockQuote, Long> {
     // Só de herdar o JpaRepository, você já ganha métodos como save(), findAll(), findById() de graça!
+
+    List<StockQuote> findBySymbolOrderBySavedAtDesc(String symbol);;
 }
